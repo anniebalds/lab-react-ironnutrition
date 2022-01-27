@@ -43,11 +43,8 @@ const Form = ({addFood}) => {
 				onChange={(e) => setImage(e.target.value)}
 			/>
       <button>Add food item</button>
-
-
     </form>
   )
-
 };
 
 

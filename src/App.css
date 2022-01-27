@@ -28,15 +28,6 @@
   color: #61dafb;
 }
 
-.bodycontainer {
-  display: flex;
-}
-
-
-.wholebox {
-  display: flex;
-  flex-direction: column;
-}
 
 .box {
   width: 700px;

@@ -3,12 +3,9 @@ import React from 'react';
 const TodaysFoods = ({todaysFoods}) => {
 
     const total = todaysFoods.reduce((acc, curr)=> acc + (curr.calories * curr.quantity), 0)
-    console.log(todaysFoods)
 
   return <div>
-
     <h1>Today's foods</h1>
-
 
     {todaysFoods.map((food) => {
         return (
@@ -19,7 +16,6 @@ const TodaysFoods = ({todaysFoods}) => {
     })}
 
     <h3>Total calories: {total}</h3>
-
   </div>;
 };
 

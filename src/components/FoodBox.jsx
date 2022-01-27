@@ -5,9 +5,7 @@ const FoodBox = ({food, addToList}) => {
 
   const [foodQuantity, setFoodQuantity] = useState(1)
 
-
   return (
-
     <div className="box" key={food.name}>
     <article className="media">
     <div className="media-left">

@@ -10,14 +10,11 @@ import { useState } from "react";
 
 
 function App() {
-
   const [foods, setFoods] = useState(foodsOrigin);
   const [searchedString, setSearchedString] = useState('');
   const [isClicked, setIsClicked] = useState(false);
   const [todaysFoods, setTodaysFoods] = useState([]);
   
-
-
   const addFood = (food) => {
   setFoods([...foods, food]);
   setIsClicked(!isClicked)
@@ -34,12 +31,10 @@ function App() {
 
   const addToList = (name, calories, foodQuantity) => {
     const todayItem = {name, calories, quantity: foodQuantity};
-
+    setTodaysFoods([...todaysFoods, todayItem])
 
 //---------------1st group attempt unfinished
-
     // const groupedFoods = [...todaysFoods]
-
     // const foodUpdate = groupedFoods.filter(food => food.name === todayItem.name)
 
     // if (foodUpdate) {
@@ -62,9 +57,6 @@ function App() {
     //   console.log(groupedFoods[i].calories, todayItem.calories)
     // }
     // console.log('grouped foods', groupedFoods)
-
-    setTodaysFoods([...todaysFoods, todayItem])
-
   }
 
 
@@ -73,27 +65,25 @@ function App() {
 
   return (
   <div className="App">
-
     <Search 
       searchedString={searchedString}
       callbackSearch={setSearchedString}
     />
-
     <button onClick={() => setIsClicked(!isClicked)}>Add food item</button>
-    {isClicked && (
+      {isClicked && (
       <Form addFood={addFood}/>
-    )}
-    
-    <div class='bodycontainer'>
-    <div className='wholebox'>
+      )}
+    <div class='columns'>
+    <div class='column'>
     {searchedFoods.map((food) => {
-    return (
+      return (
       <FoodBox food={food} addToList={addToList}  />
-    )
+      )
     })}
     </div>
-
-    <TodaysFoods todaysFoods={todaysFoods}  />
+    <div class='column'>
+      <TodaysFoods todaysFoods={todaysFoods}  />
+    </div>
     </div>
   </div>
   );
